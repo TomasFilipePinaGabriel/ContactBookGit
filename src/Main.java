@@ -60,7 +60,8 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case GIVE_NUMBER:
-
+                    getContactThroughNumber(in,cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
