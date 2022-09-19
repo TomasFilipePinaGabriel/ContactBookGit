@@ -159,10 +159,10 @@ public class Main {
 
     private static void getContactThroughNumber(Scanner in,ContactBook cBook){
         int number;
-        number = in.nextInt();
+        number = in.nextInt(); in.nextLine();
         Contact c = cBook.getContactWithNumber(number);
         if(c!=null){
-            System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
+            System.out.println(c.getName());
         }else
             System.out.println(NO_CONTACT_WITH_NUMBER);
     }
