@@ -13,8 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-
     public static final String GIVE_NUMBER    = "GN";
+    public static final String EQUAL_NUM      = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -24,12 +24,11 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-
     public static final String NO_CONTACT_WITH_NUMBER = "Phone number does not exist.";
+    private static final String YES_EQUAL_NUMS = "There are contacts that share phone numbers.";
+    private static final String NO_EQUAL_NUMS = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
-
-
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -61,6 +60,9 @@ public class Main {
                     break;
                 case GIVE_NUMBER:
                     getContactThroughNumber(in,cBook);
+                    break;
+                case EQUAL_NUM:
+                    contactsWithSameNumber(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -165,5 +167,12 @@ public class Main {
             System.out.println(c.getName());
         }else
             System.out.println(NO_CONTACT_WITH_NUMBER);
+    }
+
+    private static void contactsWithSameNumber(ContactBook cBook){
+        if(cBook.contactsSameNumber())
+            System.out.println(YES_EQUAL_NUMS);
+        else
+            System.out.println(NO_EQUAL_NUMS);
     }
 }

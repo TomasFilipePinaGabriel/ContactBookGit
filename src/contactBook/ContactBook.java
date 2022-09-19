@@ -111,4 +111,16 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean contactsSameNumber() {
+        this.initializeIterator();
+        while(this.hasNext()){
+            Contact next = this.next();
+            for(int i = 0; i < counter; i++){
+                Contact curr = contacts[i];
+                if(curr.getPhone() == next.getPhone() && !curr.equals(next))
+                    return true;
+            }
+        }
+        return false;
+    }
 }
